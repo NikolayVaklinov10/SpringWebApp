@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
-class ChallengeServiceTest {
+public class ChallengeServiceTest {
 
     private ChallengeService challengeService;
 
@@ -25,6 +25,19 @@ class ChallengeServiceTest {
         ChallengeAttempt result = challengeService.verifyAttempt(attemptDTO);
         // then
         then(result.isCorrect()).isTrue();
+    }
+
+    @Test
+    public void checkWrongAttemptTest(){
+        // given
+        ChallengeAttemptDTO attemptDTO = new ChallengeAttemptDTO(50, 60, "maria", 5000);
+        // when
+        ChallengeAttempt resultAttempt = challengeService.verifyAttempt(attemptDTO);
+        // then
+        then(resultAttempt.isCorrect()).isFalse();
+
+
+
     }
 
 
