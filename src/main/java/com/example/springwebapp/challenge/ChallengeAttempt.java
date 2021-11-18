@@ -1,5 +1,6 @@
 package com.example.springwebapp.challenge;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import com.example.springwebapp.user.User;
 
@@ -8,12 +9,14 @@ import com.example.springwebapp.user.User;
  */
 
 @Data
+@AllArgsConstructor
 public class ChallengeAttempt {
     private Long id;
-    private Long userId;
+    private User userId;
     private int factorA;
     private int factorB;
     private int resultAttempt;
     private boolean correct;
+
 
 }
